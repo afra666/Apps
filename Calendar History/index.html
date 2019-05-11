@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar History</title>
+    <style>
+        #calendar{
+            /*居中 宽高与边框线*/
+            margin: 0px auto;
+            width: 350px;
+            height: 700px;
+            border: 1px solid cyan;
+            background-color: #FFE4E1;
+            overflow: hidden;
+        }
+        #calendar ul{
+        }
+        #calendar ul li{
+            /*宽高板块对齐方式,文字对齐,去黑点,块距离,背景色*/
+            width: 85px;
+            height: 85px;
+            float: left;
+            text-align: center;
+            list-style: none;
+            margin: 2px;
+            background-color: #85afe1;
+        }
+        #c2019{
+            /*对齐*/
+            text-align: center;
+        }
+       #history{
+            /*对齐*/
+            text-align: left;
+            margin: 400px auto;
+           width: 320px;
+           height: 240px;
+           border: 1px solid blue;
+        }
+    </style>
+    <script>
+    	window.onload=function () {
+            let strArr=[
+                "January——1月:在罗马传说中，有一位名叫雅努斯的守护神，生有先后两副脸，一副回顾过去，一副要眺望未来。人们认为选择他的名字作为除旧迎新的第一个月月名，很有意义。英语January，便是由这位守护神的拉丁文名字January演变而来的。",
+                "February——2月:每年2 月初，罗马人民都要杀牲饮酒，欢庆菲勃卢姆节。这一天，人们常用一种牛、草制成的名叫Februa的鞭子，抽打不育的妇女，以求怀孕生子。这一天，人们还要忏悔自己过去一年的罪过，洗刷自己的灵魂，求得神明的饶恕，使自己成为一个贞洁的人。英语2月February，便是由拉丁文Februar-ius（即菲勃卢姆节）演变而来。",
+                "March——3月:3月原是罗马旧历法的1 月，新年的开始。凯撒大帝改革历法后，原来的1月变成3月，但罗马人仍然把3 月看做是一年的开始。另外，按照传统习惯，3月是每年出征远战的季节。为了纪念战神玛尔斯，人们便把这位战神的拉丁名字作为3月的月名。英语3月March，便是由这位战神的名字演变而来的。",
+                "April——4月:罗马的4月，正是大地回春.鲜花初绽的美好季节。英文4月April便由拉丁文April（即开花的日子）演变而来。",
+                "May——5月:罗马神话中的女神玛雅，专门司管春天和生命。为了纪念这位女神，罗马人便用她的名字——拉丁文Maius命名5月，英文5月May便由这位女神的名字演变而来。",
+                "June——6月:罗马神话中的裘诺，是众神之王，又是司管生育和保护妇女的神。古罗马人对她十分崇敬，便把6月奉献给她，以她的名字——拉丁文Junius来命名6 月。英语6月June便由这位女神的名字演变而来。也有学者认为，Junius可能是个代拉丁家族中一个显赫贵族的姓氏。",
+                "July——7月:罗马统治者朱里斯·凯撒大帝被刺死后，著名的罗马将军马克·安东尼建议将凯撒大帝诞生的7月，用凯撒的名字——拉丁文Julius（即朱里斯）命名之。这一建议得到了元老院的通过。英语7月July由此演变而来。",
+                "August——8月:朱里斯·凯撒死后，由他的甥孙屋大维续任罗马皇帝。为了和凯撒齐名，他也想用自己的名字来命名一个月份。他的生日在9月，但他选定8月。因为他登基后，罗马元老院在8 月授予他Augustus（奥古斯都）的尊号。于是，他决定用这个尊号来命名8月。原来8月比7月少一天，为了和凯撒平起平坐，他又决定从2月中抽出一天加在8月上。从此，2月便少了一天。英语8月August便由这位皇帝的拉丁语尊号演变而来。",
+                "September——9月:老历法的7月，正是凯撒大帝改革历法后的9月，拉丁文Septem是“7”月的意思。虽然历法改革了，但人们仍袭用旧名称来称呼9月。英语9月September，便由此演变而来。",
+                "October——10月: 英语10月，来自拉丁文Octo，即“8”的意思。它和上面讲的9月一样，历法改了，称呼仍然沿用未变。",
+                "November——11月:罗马皇帝奥古斯都和凯撒都有了自己名字命名的月份，罗马市民和元老院要求当时的罗马皇帝梯比里乌斯用其名命名11月。但梯比里乌斯没有同意，他明智地对大家说，如果罗马每个皇帝都用自己的名字来命名月份，那么出现了第13个皇帝怎么办？于是，11月仍然保留着旧称Novem，即拉丁文“9”的意思。英语11月November便由此演变而来。",
+                "December——12月:罗马皇帝琉西乌斯要把一年中最后一个月用他情妇的Amagonius的名字来命名，但遭但元老院的反对。于是，12月仍然沿用旧名Decem，即拉丁文“10”的意思。英语12月December，便由此演变而来。"
+        ];
+            let oDiv=document.getElementById("calendar");
+            let liArr=oDiv.getElementsByTagName("li");
+            let hist=document.getElementById("history");
+            for (let i = 0; i < liArr.length; i++) {
+                liArr[i].index=i;
+                liArr[i].onmouseover=function () {
+                    liArr[i].style.background="cyan";
+                    hist.innerHTML=strArr[i];
+                }
+                liArr[i].onmouseout=function () {
+                    liArr[i].style.background="#85afe1";
+                    hist.innerHTML="<h5>&nbsp&nbsp&nbsp&nbsp公历每个月名称的由来:</h5><p>&nbsp&nbsp你知道12个月的英语名称的来历吗?</p>";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="calendar">
+    <div id="c2019"><h4>History of Calendar</h4></div>
+    <ul>
+        <li><h3>1</h3><p>JAN</p></li>
+        <li><h3>2</h3><p>FEB</p></li>
+        <li><h3>3</h3><p>MAR</p></li>
+        <li><h3>4</h3><p>APR</p></li>
+        <li><h3>5</h3><p>MAY</p></li>
+        <li><h3>6</h3><p>JUN</p></li>
+        <li><h3>7</h3><p>JUL</p></li>
+        <li><h3>8</h3><p>AUG</p></li>
+        <li><h3>9</h3><p>SEP</p></li>
+        <li><h3>10</h3><p>OCT</p></li>
+        <li><h3>11</h3><p>NOV</p></li>
+        <li><h3>12</h3><p>DEC</p></li>
+
+    </ul>
+    <div id="history"><h5>&nbsp&nbsp&nbsp&nbsp公历每个月名称的由来:</h5><p>&nbsp&nbsp你知道12个月的英语名称的来历吗?</p>
+    </div>
+
+
+</div>
+
+</body>
+</html>
