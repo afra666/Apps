@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rolling Pictures</title>
+    <style>
+        /*左上角对齐*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*最大面板*/
+        #div1{
+            width: 1240px;
+            height: 300px;
+            margin: 100px auto;
+            background: lavender;
+            position: relative;
+
+            overflow: hidden;
+        }
+        /*内部绝对位置布局*/
+        #div1 ul{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        /*左对齐,宽度*/
+        #div1 ul li{
+            float: left;
+            width: 310px;
+            list-style: none;
+        }
+    </style>
+    <script>
+    window.onload=function () {
+        let oDiv=document.getElementById("div1");
+        //第0个元素
+        let oUl=oDiv.getElementsByTagName("ul")[0];
+        let aLi=oUl.getElementsByTagName("li");
+        //内部li标签复制
+        oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+        oUl.style.width=aLi[0].offsetWidth*aLi.length+"px";//数值与字符串
+        setInterval(function () {
+            //当oUl.offsetLeft为负数时会一直向做运动
+            if (oUl.offsetLeft<-oUl.offsetWidth/2) {
+                     oUl.style.left="0px";
+            }
+            // oUl.style.left+=10;XXX不是数字不能+=
+            oUl.style.left=oUl.offsetLeft-8+"px";
+        },30);
+    }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <ul>
+            <li><img src="img/1.png"/> </li>
+            <li><img src="img/2.png"/> </li>
+            <li><img src="img/3.png"/> </li>
+            <li><img src="img/4.png"/> </li>
+        </ul>
+
+    </div>
+</body>
+</html>
