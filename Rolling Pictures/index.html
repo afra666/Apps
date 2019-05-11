@@ -40,14 +40,28 @@
         //内部li标签复制
         oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
         oUl.style.width=aLi[0].offsetWidth*aLi.length+"px";//数值与字符串
-        setInterval(function () {
+
+        function move() {
             //当oUl.offsetLeft为负数时会一直向做运动
             if (oUl.offsetLeft<-oUl.offsetWidth/2) {
-                     oUl.style.left="0px";
+                oUl.style.left="0px";
             }
             // oUl.style.left+=10;XXX不是数字不能+=
-            oUl.style.left=oUl.offsetLeft-3+"px";
-        },30);
+            oUl.style.left=oUl.offsetLeft-2+"px";
+        }
+        //开始滚动
+        let timer=setInterval(move,30);
+        oDiv.onmouseover=function () {
+            clearInterval(timer);
+
+        };
+
+        //重新滚动
+        oDiv.onmouseout=function () {
+            timer=setInterval(move,30);
+
+        };
+
     }
     </script>
 </head>
