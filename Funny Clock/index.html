@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Clock</title>
+    <script>
+        function toStr(num){
+            if (num<10) {
+                return "0"+num;
+            }else {
+                return ""+num;
+            }
+
+        }
+        window.onload=function () {
+            let arrImg=document.getElementsByTagName("img");
+            //以下需要定时器更新
+            function clock() {
+                let oDate=new Date();
+                let timerStr=toStr(oDate.getHours())+toStr(oDate.getMinutes())+toStr(oDate.getSeconds());
+
+                for (let i = 0; i < arrImg.length; i++) {
+                    arrImg[i].src="img/"+timerStr[i]+".png";
+                }
+            }
+            setInterval(clock,1000);
+            clock();
+
+        }
+
+    </script>
+</head>
+<body style="background: black;color: white;font-size: 70px; text-align: justify;">
+<div>
+    <img />
+    <img />
+
+    :
+
+    <img />
+    <img />
+
+    :
+
+    <img />
+    <img />
+</div>
+</body>
+</html>
