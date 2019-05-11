@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rolling Pictures</title>
+    <style>
+        /*左上角对齐*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*最大面板*/
+        #div1{
+            width: 1240px;
+            height: 300px;
+            margin: 100px auto;
+            background: lavender;
+            position: relative;
+
+            overflow: hidden;
+        }
+        /*内部绝对位置布局*/
+        #div1 ul{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        /*左对齐,宽度*/
+        #div1 ul li{
+            float: left;
+            width: 310px;
+            list-style: none;
+        }
+    </style>
+    <script>
+    window.onload=function () {
+        let oDiv=document.getElementById("div1");
+        //第0个元素
+        let oUl=oDiv.getElementsByTagName("ul")[0];
+        let aLi=oUl.getElementsByTagName("li");
+        //内部li标签复制
+        oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+        oUl.style.width=aLi[0].offsetWidth*aLi.length+"px";//数值与字符串
+
+        let speed=-2;
+        function move() {
+            //当oUl.offsetLeft为负数时会一直向做运动
+            if (oUl.offsetLeft<-oUl.offsetWidth/2) {
+                oUl.style.left="0px";
+            }
+            //向右移动
+            if (oUl.offsetLeft>0) {
+                        oUl.style.left=-oUl.offsetWidth/2+"px";
+            }
+            // oUl.style.left+=10;XXX不是数字不能+=
+            oUl.style.left=oUl.offsetLeft+speed+"px";
+        }
+        //开始滚动
+        let timer=setInterval(move,30);
+        oDiv.onmouseover=function () {
+            clearInterval(timer);
+
+        };
+
+        //重新滚动
+        oDiv.onmouseout=function () {
+            timer=setInterval(move,30);
+
+        };
+        let a0=document.getElementsByTagName("a")[0];
+        let a1=document.getElementsByTagName("a")[1];
+        a0.onclick=function () {
+            speed=-2;
+        }
+        a1.onclick=function () {
+            speed=2;
+        }
+
+    }
+    </script>
+</head>
+<body>
+<a href="javascript:;">向左走</a>
+<a href="javascript:;">向右走</a>
+    <div id="div1">
+        <ul>
+            <li><img src="img/1.png"/> </li>
+            <li><img src="img/2.png"/> </li>
+            <li><img src="img/3.png"/> </li>
+            <li><img src="img/4.png"/> </li>
+        </ul>
+
+    </div>
+</body>
+</html>
