@@ -14,6 +14,8 @@ Syntax highlighted code block
 # Header 1
 ## Header 2
 ### Header 3
+https://afra666.github.io/Apps/Calendar%20History/index.html
+https://afra666.github.io/Apps/Funny%20Clock/
 
 - Bulleted
 - List
