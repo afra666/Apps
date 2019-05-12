@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Online</title>
+    <style>
+        #div1{
+            margin: 50px auto;
+            left: 5%;
+            position: absolute;
+            border-radius: 10px;
+
+        }
+        #divShow   td{
+            border:1px solid cyan;
+
+        }
+
+        textarea{
+            resize: none;
+        }
+        #bg{
+            margin:auto;
+            left: 10%;
+        }
+        .movieName{
+            width: 100px;
+        }
+    </style>
+    <script>
+    window.onload=function () {
+        // 搜索文本框
+        let oTxtSearch=document.getElementById("searchTxt");
+        //添加3个文本框
+        let oTxtTitle=document.getElementById("txt1");
+        let oTxtCountry=document.getElementById("txt2");
+        let oTxtBrief=document.getElementById("txt3");
+
+
+        //三个按钮
+        let oBtnSearch=document.getElementById("btnSearch");
+        let oBtnAdd=document.getElementById("btn2");
+        let oBtnSort=document.getElementById("btn3");
+
+        //获取大表格
+        let oTab=document.getElementById("tab2");
+        let oTbody=document.getElementById("tbody2");
+        //放到这里可以修复行数错误
+        let id=oTab.tBodies[0].rows.length+1;
+        oBtnSearch.onclick=function () {
+            if (oTxtSearch.value!="") {
+                //用户输入oSearchStr,分割为字符串数组
+                let oSearchStr=oTxtSearch.value.toLowerCase();
+                let usrArr=oSearchStr.split(" ");
+                for (let line = 0; line<oTab.tBodies[0].rows.length; line++) {
+                    //表格第一列every
+                    let every=oTab.tBodies[0].rows[line].cells[1].innerHTML.toLowerCase();
+                    //不能加到循环里面
+                    oTab.tBodies[0].rows[line].style.background="";
+                    //分割之后是数组
+                    for (let i = 0; i < usrArr.length; i++) {
+                        //如果搜索结果为真
+                        if (every.search(usrArr[i])!=-1) {
+                            oTab.tBodies[0].rows[line].style.background="yellow";
+                            //这里不能加else
+                        }
+                    }
+                }
+            }
+
+        }
+        oBtnAdd.onclick=function () {
+            if (oTxtTitle.value&&oTxtCountry.value&&oTxtBrief.value) {
+
+
+                //创建新行
+                let oTrNew=document.createElement("tr");
+
+
+                // 创建5列:1.ID;2.title;3.country;4.brief;5.delete
+
+                let oTdNewID=document.createElement("td");
+                oTdNewID.innerHTML=(id++)+"";
+                oTrNew.appendChild(oTdNewID);
+                let oTdNew2=document.createElement("td");
+                oTdNew2.innerHTML=oTxtTitle.value;
+                oTrNew.appendChild(oTdNew2);
+                let oTdNew3=document.createElement("td");
+                oTdNew3.innerHTML=oTxtCountry.value;
+                oTrNew.appendChild(oTdNew3);
+
+
+
+                let oTdNew4=document.createElement("td");
+                oTdNew4.innerHTML=oTxtBrief.value;
+                oTrNew.appendChild(oTdNew4);
+
+                let oTdNew5=document.createElement("td");
+                oTdNew5.innerHTML="<a href='javascript:;'>Delete</a>";
+                oTrNew.appendChild(oTdNew5);
+
+                //删除本行
+                oTdNew5.getElementsByTagName("a")[0].onclick=function(){
+                    //this等价于oTdNew5.getElementsByTagName("a")[0]
+                    oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+                }
+
+
+
+                //添加到tbody中
+                oTbody.appendChild(oTrNew);
+                oTab.appendChild(oTbody);
+            }
+        }
+        oBtnSort.onclick=function () {
+
+            alert("开始排序");
+        }
+    }
+    </script>
+</head>
+<body>
+
+<div id="div1">
+
+    <div id="divUserIn">
+
+        <table id="tabTitle">
+            <tr><td><img src="img/logo.png"><br></td></tr>
+            <tr><td><input id="searchTxt" type="text" placeholder="Movie name,country"/>&nbsp<input id="btnSearch" type="button" value="SEARCH"><br><br></td></tr>
+
+            <tr><td> <textarea id="txt1" placeholder="Movie's title"/></textarea>&nbsp
+                <textarea id="txt2" placeholder="country"/></textarea>&nbsp
+                <textarea id="txt3" placeholder="brief introduction"/></textarea>
+            </td><td><input id="btn2" type="button" value="Add Movie"></td></tr>
+        </table>
+
+    </div>
+    <div id="divShow">
+        <input id="btn3" type="button" value="Sort">
+        <table id="tab2">
+           <thead>
+           <tr><td><h4>&nbspID</h4></td><td><h4>&nbsp名称</h4></td><td><h4>国家</h4></td><td><h4>&nbsp内容简介</h4></td><td><h4>&nbsp操作</h4></td></tr>
+           </thead>
+
+
+            <tbody id="tbody2">
+            <tr>
+                <td>1</td><td class="movieName">飞驰人生</td><td>中国</td><td>曾经叱咤风云的拉力赛车手张驰（沈腾 饰），五年前因私自赛车而被禁赛。从天堂跌落谷底，张驰饱尝生活的艰辛。他忍辱负重，洗心革面，终于争取到了解禁的判决。在此之后，他重新找到亲如兄弟的领航员孙宇强（尹正 饰），决心共同冲击本年度的巴音布鲁克拉力赛。然而在此之前，张驰必须重考驾照，改装赛车，拉到赞助。每一步都充满艰难，他忍受着旁人的奚落嘲讽，忍受着现实的冰冷残酷，无论如何都不改变前进的目标。当他好不容易走到了赛场，还将面对禁赛这几年崛起的新秀林臻东（黄景瑜 饰）的挑战。</td>
+                <td><h4>&nbsp</h4></td>
+            </tr>
+
+            <tr>
+                <td>2</td><td>Aquaman</td><td>美国/澳大利亚</td><td>许多年前，亚特兰蒂斯女王（妮可·基德曼 Nicole Kidman 饰）和人类相知相恋，共同孕育了爱情的结晶——后来被陆地人称为海王的亚瑟·库瑞（杰森·莫玛 Jason Momoa 饰）。在成长的过程中，亚瑟接受海底导师维科（威廉·达福 Willem Dafoe 饰）的严苛训练，时刻渴望去看望母亲，然而作为混血的私生子这却是奢望。与此同时，亚瑟的同母异父兄弟奥姆（帕特里克·威尔森 Patrick Wilson 饰）成为亚特兰蒂斯的国王，他不满陆地人类对大海的荼毒与污染，遂谋划联合其他海底王国发动对陆地的全面战争。为了阻止他的野心，维科和奥姆的未婚妻湄拉（艾梅柏·希尔德 Amber Heard 饰）将亚瑟带到海底世界。
+                　　宿命推动着亚瑟，去寻找失落已久的三叉戟，建立一个更加开明的海底王国…… </td>
+                <td><h4>&nbsp</h4></td>
+            </tr>
+
+            <tr>
+                <td>3</td><td>波西米亚狂想曲</td><td>英国/美国</td><td>本片是对皇后乐队、传奇主唱弗雷迪·莫库里以及他们音乐的致敬盛宴，这是一段充满爱、痛苦、接纳和音乐的旅程。
+                　　弗雷迪·莫库里（拉米·马雷克 饰）曾是希思罗机场的一名普通搬运工，对音乐满腔热血的他，与布莱恩·梅（格威利姆·李 饰）、罗杰·泰勒（本·哈迪 饰）、约 翰·迪肯（约瑟夫·梅泽罗 饰）组成皇后乐队。这个殿堂级乐队的从无到有，从疏离到重聚，从低谷到巅峰，仿佛就是弗雷迪一生的缩影。在最后的日子里，弗雷迪做了生命中最重要的决定——在音乐史上最伟大的“拯救生命”大型摇滚乐演唱会上，将所有热血付诸于歌声。</td>
+                <td><h4>&nbsp</h4></td>
+            </tr>
+
+            <tr>
+                <td>4</td><td>老师·好</td><td>中国</td><td>故事发生在20世纪80年代的偏远山城。南宿一中的优秀教师苗宛秋（于谦 饰）踌躇满志，迎来了新一届的高中学生。开学第一天，霸气十足的苗老师便给这群性格张扬、问题多多的学生们一个下马威，无论是桀骜不驯的混混洛小乙，还是一脑袋鬼点子的王海，无论是投机倒把的耗子，还是虚荣张扬的关婷婷，都被他收拾得服服帖帖。只不过这帮孩子表面顺服，背地里却与苗霸天展开了旷日持久的战争。在战争的过程中，专横的苗霸天不时展现温情的一面，他的古道侠肠更是令孩子们暗自佩服。
+                　　转眼三年时光过去，懵懂无知的孩子们渐渐长大，他们似乎开始认识到苗老师最真实的一面了……</td>
+                <td><h4>&nbsp</h4></td>
+            </tr>
+
+            </tbody>
+            </table>
+    </div>
+</div>
+<img id="bg" src="img/bg.png" />
+</body>
+</html>
