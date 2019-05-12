@@ -46,8 +46,11 @@
             let m=fullTime.getMinutes();
             let s=fullTime.getSeconds();
 
-
+            txt1.style["display"]='block';
             txt1.setAttribute("value",year+"年"+(month+1)+"月"+date+"日"+" "+day+","+h+"点"+m+"分"+s+"秒");
+        }
+        btn2.onclick=function () {
+            txt1.style["display"]='none';
         }
     }
     </script>
