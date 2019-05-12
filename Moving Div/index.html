@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Moving Div</title>
+    <style>
+    	#div1{
+            width: 200px;
+            height: 200px;
+            background: blanchedalmond;
+
+            margin: 100px;
+            position: absolute;
+        }
+        #div2{
+            width: 50px;
+            height: 50px;
+            background: darkturquoise;
+
+            /*相对定位*/
+            position: relative;
+
+            top: 50px;
+            left: 50px;
+        }
+
+    </style>
+    <script>
+    window.onload=function () {
+        let oDiv=document.getElementById("div1");
+        let speed=1;
+        let move=function(){
+            //style.left是串型数据,而且无法取到.只能使用offsetLeft
+            oDiv.style.left=oDiv.offsetLeft+speed+'px';
+            if (oDiv.offsetLeft>1000) {
+                oDiv.style.left="0px";
+            }
+        }
+        setInterval(move,1000);
+    }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+
+</div>
+<div>
+    #div1{
+    width: 200px;
+    height: 200px;
+    background: blanchedalmond;
+
+    margin: 100px;
+    position: absolute;
+    }
+
+</div>
+<div>
+
+    #div2{
+    width: 50px;
+    height: 50px;
+    background: darkturquoise;
+
+    /*相对定位*/
+    position: relative;
+
+    top: 50px;
+    left: 50px;
+    }
+</div>
+</body>
+</html>
