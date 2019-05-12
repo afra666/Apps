@@ -53,6 +53,9 @@
         //放到这里可以修复行数错误
         let id=oTab.tBodies[0].rows.length+1;
         oBtnSearch.onclick=function () {
+            for (let i = 0; i < oTab.tBodies[0].rows.length; i++) {
+                oTab.tBodies[0].rows[i].style.background="";
+            }
             if (oTxtSearch.value!="") {
                 //用户输入oSearchStr,分割为字符串数组
                 let oSearchStr=oTxtSearch.value.toLowerCase();
