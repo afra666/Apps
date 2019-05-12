@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hidden parentNode</title>
+    <script>
+    window.onload=function () {
+        let arA=document.getElementsByTagName("a");
+        for (let i = 0; i < arA.length; i++) {
+            arA[i].onclick=function () {
+                // 错误写法arA[i].parentNode.style.display='none';
+                this.parentNode.style.display='none';
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>钢铁侠Tony Stark / Iron Man 小罗伯特·唐尼 Robert Downey Jr.
+            小罗伯特·唐尼Robert Downey Jr. 饰
+
+            托尼·斯塔克是斯塔克工业的继承人，他的父亲霍华德是神盾局的创始人之一。在一次绑架事故中，托尼发明了一套动力增强装甲，这套装备由金钛合金制成，有一定的局限性，会损耗。穿上盔甲后，托尼变身成了复仇者联盟中惩恶扬善的钢铁侠。
+        <a href="javascript:;">隐藏</a>
+        </li>
+        <li>
+            美国队长Steve Rogers / Captain America 克里斯·埃文斯 Chris Evans
+            克里斯·埃文斯Chris Evans 饰
+
+            正义热血的美国队长原是二战时期一名瘦弱的普通士兵，因参加“超级战士重生计划”成为唯一一个成功的实验品而拥有了超越常人的体能。在二战中他曾立下赫赫战功，但在驱逐红骷髅的最终战役里，罗杰斯遭重创而被冰封，约七十年后才重新醒来。随后他加入了复仇者联盟。
+        <a href="javascript:;">隐藏</a>
+        </li>
+        <li>
+            雷神Thor 克里斯·海姆斯沃斯 Chris Hemsworth
+            克里斯·海姆斯沃斯Chris Hemsworth 饰
+
+            复仇者联盟中的非地球人类成员，对弟弟洛基爱恨交织。索尔是奥丁的亲生儿子，阿斯加德的王位继承人。他年轻气盛，鲁莽耿直，曾因自负被流放地球。索尔关心的主要问题是维护包括阿斯加德与地球在内的九大世界的和平，以及搞好与兄弟洛基的关系。祸不单行，这两件事同时出了麻烦。
+        <a href="javascript:;">隐藏</a>
+        </li>
+        <li>
+            黑寡妇Natasha Romanoff / Black Widow 斯嘉丽·约翰逊 Scarlett Johansson
+            斯嘉丽·约翰逊Scarlett Johansson 饰
+
+            原是秘密组织神盾局的一名俄国籍女探员，体态婀娜面容姣好，头脑清晰行动敏捷，身手不凡强硬凶狠，是神盾局的精英特工。娜塔莎最初被安排在斯塔克工业内部作为卧底，负责监视钢铁侠托尼·斯塔克，后正式加入复仇者联盟。她也是这次成军的复仇者联盟中唯一的女性成员。
+        <a href="javascript:;">隐藏</a>
+        </li>
+        <li>
+            绿巨人Bruce Banner/Hulk 马克·鲁法洛 Mark Ruffalo
+            马克·鲁法洛Mark Ruffalo 饰
+
+            科学家布鲁斯·班纳博士在一次实验中误被伽马射线所伤，随后他便发现，当自己陷入愤怒或恐惧的情绪中时，不能控制的心跳加速会让自己变身成为一个体格庞大、力量无穷但不受意志控制的绿色巨人。班纳博士始终在寻找如何治疗这种“病变”，他因拥有可怕的力量而被应征加入复仇者联盟。
+        <a href="javascript:;">隐藏</a>
+        </li>
+        <li>
+            鹰眼Clint Barton / Hawkeye 杰瑞米·雷纳 Jeremy Renner
+            杰瑞米·雷纳Jeremy Renner 饰
+
+            他是在马戏团长大的孤儿，因超一流的箭术被神盾局指挥官尼克·弗瑞慧眼识珠，加入复仇者联盟。鹰眼侠行动迅速果敢，个性低调沉稳，出招百发百中，极其擅长狙击。在漫威漫画故事中，鹰眼侠曾与黑寡妇有绯闻。在电影《雷神》里，鹰眼曾被安排在高空射杀索尔。
+        <a href="javascript:;">隐藏</a>
+        </li>
+        <li>
+            尼克·弗瑞Nick Fury 塞缪尔·杰克逊 Samuel L. Jackson
+            塞缪尔·杰克逊Samuel L. Jackson 饰
+
+            作为绝密维和组织神盾局的传奇指挥官，尼克·弗瑞在应对世界危机的行动中往往亲力亲为。当神盾局了解到一股邪恶势力将会威胁到地球的安全时，弗瑞奔走斡旋，将这个星球上最强大的超级英雄召集到一起，组成了地上最强战队复仇者联盟。
+        <a href="javascript:;">隐藏</a>
+        </li>
+        <li>
+            洛基Loki 汤姆·希德勒斯顿 Tom Hiddleston
+            汤姆·希德勒斯顿Tom Hiddleston 饰
+
+            有着冰巨人族血脉的战争遗孤洛基被万神之父奥丁收养，并与奥丁的亲生儿子雷神索尔一起长大成人。在寻求父爱与公平待遇的成长过程里，洛基逐渐失去了理智与平衡，对权力的渴望使他走上叛逆之路。洛基被流放后，组建一支庞大的军队并奴役了人类，成为复仇者联盟最大的敌人。
+        <a href="javascript:;">隐藏</a>
+        </li>
+        <li>
+            特工科尔森Agent Phil Coulson 克拉克·格雷格 Clark Gregg
+            克拉克·格雷格Clark Gregg 饰
+
+            神盾局探员，是美国队长的坚定支持者。
+
+        <a href="javascript:;">隐藏</a>
+        </li>
+    </ul>
+</body>
+</html>
