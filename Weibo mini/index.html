@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Weibo mini</title>
+    <style>
+        #div1{
+            margin-left:40%;
+        }
+        #startLi{
+            list-style-type: none;
+        }
+        #userWeibo{
+            margin-left: 60px;
+            color: blanchedalmond;
+        }
+        #txt1{
+
+            width: 250px;
+            height: 80px;
+        }
+    </style>
+    <script>
+    window.onload=function () {
+        let oBtn=document.getElementById("btn1");
+        let oTxt=document.getElementById("txt1");
+        let oUl=document.getElementById("ul1");
+
+        oBtn.onclick=function () {
+            //新内容
+            let newLi=document.createElement('li');
+            let arLi=oUl.getElementsByTagName('li');
+            // 错误写法let aLi=document.getElementsByClassName('li');
+                if (oTxt.value!="") {
+                    //新删除
+                    let newDelA=document.createElement("a");
+                    newDelA.innerHTML="&nbsp&nbsp&nbsp<a href='javascript:;'>Delete</a>"
+                    newLi.innerHTML=oTxt.value;
+                    newLi.appendChild(newDelA);
+                    newDelA.onclick=function () {
+                        oUl.removeChild(newLi);
+                    }
+                    if (arLi.length>0) {
+                        oUl.insertBefore(newLi,arLi[0]);
+                    }else {
+                        oUl.appendChild(newLi);
+                    }
+                }
+        }
+    }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <textarea  id="txt1" ></textarea>
+    <input id="btn1" type="button" value="POST"/>
+    <ul id="ul1">
+
+    </ul>
+    <li id="startLi">-------------bottom----------------</li>
+    <h3 id="userWeibo">User Weibo</h3>
+</div>
+
+</body>
+</html>
