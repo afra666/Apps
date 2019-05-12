@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Moving Box2</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: cyan;
+            position: absolute;
+        }
+    </style>
+    <script>
+    window.onload=function () {
+        let oBtn=document.getElementById("btn1");
+        let oDiv=document.getElementById("div1");
+        let speed=3;
+        let timerMove=null;
+        function move() {
+            if (oDiv.offsetLeft<500) {
+                oDiv.style.left=oDiv.offsetLeft+speed+"px";
+            }else{
+                oDiv.style.left="0px";
+            }
+        }
+
+        oBtn.onclick=function () {
+            clearInterval(timerMove);
+
+                timerMove=setInterval(move,10);
+
+
+        }
+    }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="Move"/><br>
+<div>&nbsp</div>
+<div id="div1"></div>
+</body>
+</html>
