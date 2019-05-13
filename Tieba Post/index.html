@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tieba Post</title>
+    <script>
+
+
+        window.onload=function () {
+            let oTxt1=document.getElementById("txt1");
+            let oTxt2=document.getElementById("txt2");
+            let oBtn=document.getElementById("btn1");
+        oBtn.onclick=function () {
+            oTxt2.value=oTxt1.value;
+            oTxt1.value="";
+        }
+        oTxt1.onkeydown=function () {
+
+            // 回车13,ctrl17
+
+
+                if (event.which==13&&event.ctrlKey) {
+                    oTxt2.value=oTxt1.value;
+                    oTxt1.value="";
+                }
+
+        }
+    }
+    </script>
+</head>
+<body>
+<textarea id="txt2"></textarea>
+<br>
+<textarea id="txt1" placeholder="请输入内容,按Ctrl+Enter提交"></textarea>
+<input id="btn1" type="button" value="Post"/>
+</body>
+</html>
