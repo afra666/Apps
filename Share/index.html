@@ -1,3 +1,11 @@
+<!--用js获取style.left为什么为空？-->
+<!--2016年12月15日 15:49:03 GPChueng 阅读数：3565-->
+<!--版权声明：本文为博主原创文章，未经博主允许不得转载，如有错误，敬请指出，不胜感激。 https://blog.csdn.net/a493113713/article/details/53671383-->
+<!--这个问题遇到几次了，几次下来都没记住。。-->
+
+<!--其实很简单，element.style.left 只能获得element的行内样式，所以一般写在style或css文件内的left就无法获得。-->
+
+<!--解决办法是可以用element.offsetLeft来获取。-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +14,11 @@
     <style>
         #div1{
             position: absolute;
-            width: 200px;
-            height: 300px;
-            background: cyan;
-
-            left: -200px;
+            width: 130px;
+            height: 100px;
+            border: 1px solid cyan;
+            left: 0px;
+            left: -130px;
         }
         #div1 span{
             width: 50px;
@@ -25,36 +33,50 @@
     window.onload=function () {
         let oDiv=document.getElementById("div1");
         oDiv.onmouseover=function () {
-            show();
+            show(1);
         }
         oDiv.onmouseout=function () {
-            hide();
+            show(0);
+
         }
     }
     let timer=null;
-    function show() {
-        let oDiv=document.getElementById("div1");
-        clearInterval(timer);
-        timer=setInterval(function () {
-            if (oDiv.offsetLeft==-200) {
+    function show(flag) {
 
-                oDiv.style.left="0px";
-            }
-        },20);
-    }
-    function hide() {
         let oDiv=document.getElementById("div1");
+
+        let speed=null;
         clearInterval(timer);
-        timer=setInterval(function () {
-            if (oDiv.offsetLeft==0) {
-                oDiv.style.left="-200px";
-            }
-        },20);
+        if (flag==1) {
+            speed = 5;
+        }else {
+            speed=-5;
+        }
+
+            timer=setInterval(function () {
+                oDiv.style.left=oDiv.offsetLeft+speed+"px";
+                if (parseInt(oDiv.style.left)<=-130) {
+                    clearInterval(timer);
+                    oDiv.style.left="-130px";
+                }else if(parseInt(oDiv.style.left)>0){
+                    clearInterval(timer);
+                    oDiv.style.left="0px";
+                }
+                console.log( oDiv.style.left)
+            },10);
+
+
     }
+
     </script>
 </head>
 <body>
 <div id="div1">
+    <ul>
+        <li><a href="https://www.facebook.com/" target="_blank">Facebook</a> </li>
+        <li><a href="https://www.twitter.com/" target="_blank">Twitter</a></li>
+        <li><a href="https://www.weibo.com/" target="_blank">Weibo</a></li>
+    </ul>
 <!--    内联元素span-->
     <span>Share</span>
 </div>
