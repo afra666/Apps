@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Opacity div</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background: deepskyblue;
+            filter: opacity(0.2);
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            let oDiv=document.getElementById("div1");
+            oDiv.filter="opacity(0.8)";
+            oDiv.onmouseover=function () {
+                show(0.1);
+            }
+            oDiv.onmouseout=function () {
+                show(-0.1);
+            }
+            function show(speed) {
+                let opa=0.2;
+                let timer=null;
+                clearInterval(timer);
+                timer=setInterval(function () {
+                    if (opa>=0.2&&opa<=1) {
+                        opa+=speed;
+                       oDiv.style.filter="opacity("+opa+")";
+                    }
+                },50);
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>
