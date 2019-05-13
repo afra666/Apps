@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Drag box</title>
+    <style>
+        #div1{
+
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background: lightskyblue;
+        }
+
+    </style>
+    <script>
+       window.onload=function () {
+           let oDiv1=document.getElementById("div1");
+           //onmousedown:按下不动.onclick点击一下
+           oDiv1.onmousedown=function () {
+               let ev1=event;
+               //disX为鼠标相对div的距离
+               let disX=ev1.clientX-oDiv1.offsetLeft;
+               let disY=ev1.clientY-oDiv1.offsetTop;
+               console.log(disX+","+disY);
+               document.onmousemove=function () {
+                   let ev2=event;
+                   oDiv1.style.left=ev2.clientX-disX+"px";
+                   oDiv1.style.top=ev2.clientY-disY+"px";
+               }
+               document.onmouseup=function () {
+                   document.onmousemove=null;
+                   document.onmouseup=null;
+               }
+           }
+
+       }
+    </script>
+</head>
+
+<body>
+Drag box
+<div id="div1"></div>
+</body>
+</html>
