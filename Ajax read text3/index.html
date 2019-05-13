@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    引入js-->
+    <title>Ajax read text</title><script src="myAjax.js">
+    </script>
+    <script>
+    window.onload=function () {
+        let oBtn=document.getElementById("btn1");
+        oBtn.onclick=function () {
+            ajax("b.json",function (str) {
+                alert(str);
+            });
+
+        }
+    }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="读取Ajax"/>
+</body>
+</html>
