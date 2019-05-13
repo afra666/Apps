@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Shape</title>
+</head>
+<style>
+ div{
+     margin: 10px;
+     width: 200px;
+     height: 20px;
+     background: lightskyblue;
+     border: 1px solid red;
+ }
+</style>
+<script>
+function changeShape(obj,attr,iTarget){
+
+        obj.style[attr]=iTarget;
+
+}
+window.onload=function () {
+    let aDiv=document.getElementsByTagName("div");
+    for (let i = 0; i < 4; i++) {
+        aDiv[i].onmouseover=function () {
+            changeShape(this,"width","500px");
+        }
+        aDiv[i].onmouseout=function () {
+            changeShape(this,"width","200px");
+        }
+    }
+    aDiv[4].onmouseover=function () {
+        changeShape(this,"height","500px");
+    }
+    aDiv[4].onmouseout=function () {
+        changeShape(this,"height","20px");
+    }
+    aDiv[5].onmouseover=function () {
+        changeShape(this,"width","500px");
+        changeShape(this,"height","500px");
+    }
+    aDiv[5].onmouseout=function () {
+        changeShape(this,"width","200px");
+        changeShape(this,"height","20px");
+    }
+    aDiv[6].onmouseover=function () {
+        changeShape(this,"border","10px solid red");
+    }
+    aDiv[6].onmouseout=function () {
+        changeShape(this,"border","1px solid red");
+    }
+    aDiv[7].onmouseover=function () {
+        changeShape(this,"background","yellow");
+    }
+    aDiv[7].onmouseout=function () {
+        changeShape(this,"background","lightskyblue");
+    }
+}
+</script>
+<body>
+
+        <div>北京&nbspGDP:2.80万亿,+6.7%</div>
+        <div>上海&nbspGDP:3.01万亿,+6.9%</div>
+        <div>广州&nbspGDP:2.15万亿,+7.0%</div>
+        <div>深圳&nbspGDP:2.20万亿,+8.8%</div>
+        <div>变长</div>
+        <div>变大</div>
+        <div>边框</div>
+        <div>颜色</div>
+
+</body>
+</html>
