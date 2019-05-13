@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event which</title>
+    <script>
+        // dom操作,不是window操作
+    document.onkeydown=function () {
+        let oTxt=document.getElementById("txt1");
+        // 检测键盘的按下的键盘编码
+        oTxt.value="Key pressed:"+event.which;
+    }
+    </script>
+</head>
+
+<body>
+<input id="txt1" type="text">
+</body>
+</html>
