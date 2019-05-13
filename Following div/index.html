@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Following div</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background: lightskyblue;
+            position: absolute;
+        }
+
+    </style>
+    <script>
+
+        // 鼠标移动事件
+        document.onmousemove=function () {
+            let scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+            console.log(scrollTop);
+            let oDiv=document.getElementById("div1");
+            let oTxt=document.getElementById("txt1");
+            oDiv.style.left=event.clientX+'px';
+            oDiv.style.top=event.clientY+scrollTop+'px';
+            oTxt.value=oDiv.style.left+","+oDiv.style.top;
+        }
+    </script>
+</head>
+
+<body style="width: 2000px">
+<div id="div1"><input id="txt1" type="text" style="width: 90px"/>
+</div>
+
+</body>
+</html>
