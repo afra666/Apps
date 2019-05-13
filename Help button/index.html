@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Help button</title>
+    <style>
+        #div1{
+            display: none;
+            border: lightskyblue 1px solid;
+        }
+    </style>
+    <script>
+    window.onload=function () {
+        let oBtn=document.getElementById("btn1");
+        let oDiv=document.getElementById("div1");
+
+        oBtn.onclick=function () {
+            oDiv.style.display="block";
+            event.cancelBubble=true;
+        }
+        document.onclick=function () {
+            oDiv.style.display="none";
+        }
+    }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="Game Help"/>
+<div id="div1" >
+    <li>游戏帮助</li>
+    游戏开始后系统将随机分配玩家的角色，身份标志将在玩家头像上名字旁。
+    杀手身份和警察身份，只有同伴才可以看到，而平民看到所有人都是没有标志的。
+    特殊职业有相应的阵营，但都独立频道，不会参与警察及杀手晚上活动与频道对话。
+</div>
+</body>
+</html>
