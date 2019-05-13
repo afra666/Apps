@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Control direction</title>
+    <style>
+        #div1{
+            width: 50px;
+            height: 50px;
+            left: 50%;
+            top: 50%;
+            background: chocolate;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+    <script>
+    window.onload=function () {
+        document.onkeydown=function () {
+            let oDiv=document.getElementById("div1");
+            console.log()
+            switch (event.which) {
+                // 要加绝对定位
+                case 37:oDiv.style.left=oDiv.offsetLeft-40+"px";oDiv.style.background="#"+Math.floor(Math.random() * 16777216).toString(16);
+                    break;
+                case 38:oDiv.style.top=oDiv.offsetTop-40+"px";oDiv.style.background="#"+Math.floor(Math.random() * 16777216).toString(16);
+                    break;
+                case 39:oDiv.style.left=oDiv.offsetLeft+40+"px";oDiv.style.background="#"+Math.floor(Math.random() * 16777216).toString(16);
+                    break;
+                case 40:oDiv.style.top=oDiv.offsetTop+40+"px";oDiv.style.background="#"+Math.floor(Math.random() * 16777216).toString(16);
+                    break;
+                default:break;
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+<div>Press ←↑→↓ to control the ball</div><div id="div1"></div>
+</body>
+</html>
