@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input only number</title>
+    <script>
+    window.onload=function () {
+        let oTxt=document.getElementById("txt1");
+        oTxt.onkeydown=function () {
+            //0:(48)-9(57) 小键盘0(96)-9(105)   .110   .190  X←:8
+            if ((event.which>=48&&event.which<=57)||(event.which>=96&&event.which<=105)||(event.which>=37&&event.which<=40)||event.which==110||event.which==190||event.which==8) {
+
+            }else {
+                return false;
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+<div>只能输入数字和点号</div>
+<input id="txt1" type="text"/>
+</body>
+</html>
