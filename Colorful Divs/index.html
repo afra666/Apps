@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Colorful Divs</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            /*定位为绝对定位*/
+            position: absolute;
+            border-radius: 50%;
+            background: lightskyblue;
+        }
+
+    </style>
+    <script>
+        function getPosJson(ev){
+            let scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+            let scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+
+            return{x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop}
+        }
+        // 鼠标移动事件
+        document.onmousemove=function () {
+            let aDiv=document.getElementsByTagName("div");
+            let pos=getPosJson(event);
+            let oTxt=document.getElementById("txt1");
+            let r=null;
+            for (let i = aDiv.length-1; i >0 ; i--) {
+                aDiv[i].style.left=aDiv[i-1].offsetLeft+"px";
+                aDiv[i].style.top=aDiv[i-1].offsetTop+"px";
+                r=Math.floor(Math.random() * 16777216).toString(16);
+                aDiv[i].style.background="#"+r;
+            }
+            aDiv[0].style.left=pos.x-30+"px";
+            aDiv[0].style.top=pos.y-30+"px";
+            oTxt.value="Pos("+pos.x+","+pos.y+")Color:#"+r;
+        }
+    </script>
+</head>
+
+<body style="width: 2000px">
+<input id="txt1" type="text" style="width: 200px"/>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+</body>
+</html>
