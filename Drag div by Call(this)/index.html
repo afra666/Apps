@@ -1,0 +1,40 @@
+<!--1/3html-->
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Drag div3</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: lightskyblue;
+            border-radius: 50%;
+            /*这个要加绝对定位*/
+            position: absolute;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: lightskyblue;
+            border-radius: 50%;
+            /*这个要加绝对定位*/
+            position: absolute;
+        }
+
+    </style>
+    <script src="Drag.js"></script>
+    <script src="LimitDrag.js"></script>
+    <script>
+
+       window.onload=function () {
+           new Drag('div1');
+           new LimitDrag("div2");
+       }
+    </script>
+</head>
+
+<body>
+<div id="div1">普通拖拽</div>
+<div id="div2">限制范围拖拽</div>
+</body>
+</html>
