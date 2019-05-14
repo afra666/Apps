@@ -1,0 +1,44 @@
+<!--正则-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<script>
+window.onload=function () {
+    let oBtn1=document.getElementById("btn1");
+    let oBtn2=document.getElementById("btn2");
+    let oBtn3=document.getElementById("btn3");
+    let oBtn4=document.getElementById("btn4");
+    let oTxt1=document.getElementById("txtarea1");
+    let oTxt2=document.getElementById("txtarea2");
+
+    oBtn1.onclick=function () {
+        let re=/\d/g;
+        oTxt2.value=oTxt1.value.match(re);
+    }
+    oBtn2.onclick=function () {
+        let re=/[0-9]/g;;
+        oTxt2.value=oTxt1.value.match(re);
+    }
+    oBtn3.onclick=function () {
+        let re=/[a-z]/g;
+        oTxt2.value=oTxt1.value.match(re);
+    }
+    oBtn4.onclick=function () {
+        let re=/[a-z]/ig;
+        oTxt2.value=oTxt1.value.match(re);
+    }
+}
+
+</script>
+</head>
+<body>
+<textarea id="txtarea1" rows="10" cols="50">0123456789.A B C D E F G H I J K L M N O P Q R S T U V W ,X ,Y ,Z ab ,c</textarea><br>
+let regexp=/\d/g;<input id="btn1" type="button" value="Run1"/><br>
+let regexp=/[0-9]/g;<input id="btn2" type="button" value="Run2"/><br>
+let regexp=/[a-z]/g;<input id="btn3" type="button" value="Run3"/><br>
+let regexp=/[a-z]/ig;<input id="btn4" type="button" value="Run4"/><br>
+<textarea id="txtarea2"  rows="10" cols="50">Result</textarea>
+</body>
+</html>
