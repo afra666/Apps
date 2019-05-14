@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    引入js-->
+    <title>Ajax read text</title><script src="myAjax.js">
+    </script>
+    <script>
+    window.onload=function () {
+
+        let oBtn=document.getElementById("btn1");
+        let oTxt1=document.getElementById("txtarea1");
+        let oTxt2=document.getElementById("txtarea2");
+        ajax("a.txt",function (strIntxt) {
+            // 写在内部一次传递
+            oTxt1.innerHTML=strIntxt;
+        });
+        oBtn.onclick=function () {
+
+            oTxt2.value="Waiting...."
+            let str=oTxt1.value;
+
+            // 先设置一个数组,tmp用来存放不间断数字,如a123bc中的123,使用tmp+=charAt(i)
+            //再设置一个数组用来存放数字组成的数组,当遇到任意非数字时候使用push
+            let tmp="";
+            let iArr=[];
+            for (let i = 0; i < str.length; i++) {
+                if (str.charAt(i)>='0'&&str.charAt(i)<='9') {
+                    tmp+=str.charAt(i);
+                }else{
+                    //否则为字母或空格,如果tmp中有值的话,push
+                    if (tmp) {
+                        iArr.push(tmp);
+                        tmp="";
+                    }
+                }
+            }
+            //读完字符串后可能最后需要push一次
+            if (tmp) {
+                iArr.push(tmp);
+                tmp="";
+            }
+            oTxt2.value=iArr;
+        }
+    }
+    </script>
+</head>
+<body>
+
+<textarea id="txtarea1" style="width: 540px;height: 600px;" placeholder="Input string such as hello123 456world1024"></textarea>
+<textarea id="txtarea2" style="width: 540px;height: 600px;"></textarea><br>
+<input id="btn1" type="button" value="Find all numbers"/>
+</body>
+</html>
