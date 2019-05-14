@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scrollTop</title>
+    <script>
+        window.onload=function () {
+            let oTxt=document.getElementById("txt1");
+            document.onclick=function () {
+                let sT=document.documentElement.scrollTop;
+                let sL=document.documentElement.scrollLeft;
+
+                oTxt.value=sL+","+sT;
+            }
+        }
+    </script>
+</head>
+显示滚动条距离(L,T)
+<body style="width: 3000px;height: 3000px">
+<input id="txt1" type="text" placeholder="scrollTop"/>
+</body>
+</html>
