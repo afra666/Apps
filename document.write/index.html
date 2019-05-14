@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    window.onload=function () {
+        let oTxt=document.getElementById("txtarea1");
+        let oBtn=document.getElementById("btn1");
+        oBtn.onclick=function () {
+            // 先清空,再重写
+            document.write(oTxt.value);
+        }
+    }
+    </script>
+</head>
+
+<body>
+<textarea id="txtarea1"></textarea>
+<input id="btn1" type="button" value="Submit"/>
+</body>
+</html>
