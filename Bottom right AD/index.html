@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bottom right AD</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+            background: #99cc99;
+            position: absolute;
+
+            right: 0px;
+            bottom: 0px;
+        }
+
+    </style>
+    <script>
+
+        window.onscroll=window.onresize=function () {
+            // dom操作放到onscroll事件里面,每次获取
+            let oDiv=document.getElementById("div1");
+
+            let h1=document.documentElement.scrollTop;
+            let h2=document.documentElement.clientHeight;
+            let h3=oDiv.offsetHeight;
+            oDiv.style.top=h1+h2-h3+"px";
+        }
+    </script>
+</head>
+
+<body style="width: 3000px;height: 3000px;">
+<div id="div1">右下角固定</div>
+<img src="img/bg.png">
+</body>
+</html>
