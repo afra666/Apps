@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Open new window</title>
+    <script>
+    window.onload=function () {
+        let txt1=document.getElementById("txtarea1");
+        let oBtn1=document.getElementById("btn1");
+        let oBtn2=document.getElementById("btn2");
+        let oBtn3=document.getElementById("btn3");
+        txt1.value="<div style=\"width: 100px;height: 100px;background: lightskyblue\"></div>"
+        oBtn1.onclick=function () {
+            window.open("about:blank");
+        }
+        oBtn2.onclick=function () {
+            let newWind=window.open("about:blank");
+            newWind.document.write(txt1.value+"<input id=\"btn3\" type=\"button\" value=\"Close Window\" onclick=\"window.close()\"/>");
+        }
+    }
+    </script>
+</head>
+
+<body>
+<input id="btn1" type="button" value="Open blank"/>
+<br>
+<textarea id="txtarea1" rows="30" cols="60" placeholder="Please input something..."></textarea>
+<br>运行显示窗口
+
+<input id="btn2" type="button" value="Run"/>
+<input id="btn3" type="button" value="Close Window" onclick="window.close()"/>
+
+</body>
+</html>
