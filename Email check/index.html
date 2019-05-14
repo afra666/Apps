@@ -1,0 +1,29 @@
+<!--正则-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email check</title>
+<script>
+window.onload=function () {
+    let oBtn1=document.getElementById("btn1");
+    let oTxt1=document.getElementById("txt1");
+
+    oBtn1.onclick=function () {
+        //行首,字母,数字转义点号,行位大小写
+        let re=/^\w+@[a-z0-9]+\.[a-z]+$/i;
+        if (re.test(oTxt1.value)) {
+            alert("邮箱输入正确");
+        }else{
+            alert("!邮箱输入有误");
+        }
+    }
+}
+
+</script>
+</head>
+<body>
+<input id="txt1" type="text" value="mail@gmail.com"/>
+<input id="btn1" type="button" value="Check"/>
+</body>
+</html>
