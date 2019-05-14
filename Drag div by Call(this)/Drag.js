@@ -11,15 +11,15 @@ Drag.prototype.up=function () {
     document.onmousemove=null;
     document.onmouseup=null;
 }
-Drag.prototype.down=function(ev) {
+Drag.prototype.down=function() {
     let _this=this;
     this.disX=event.clientX-this.oDiv.offsetLeft;
     this.disY=event.clientY-this.oDiv.offsetTop;
     document.onmousemove=function(){
 
-        _this.move(ev);
+        _this.move();
         document.onmouseup=function(){
-            _this.up(ev);
+            _this.up();
         }
     }
 
@@ -31,8 +31,8 @@ function Drag(id) {
     this.oDiv=document.getElementById(id);
 
     // 错误写法 oDiv.onmousedown=down();
-    this.oDiv.onmousedown=function (ev) {
-        _this.down(ev);
+    this.oDiv.onmousedown=function () {
+        _this.down();
 
         // 防止文字选中
         return false;
