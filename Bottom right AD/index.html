@@ -21,7 +21,7 @@
             // dom操作放到onscroll事件里面,每次获取
             let oDiv=document.getElementById("div1");
 
-            let h1=document.documentElement.scrollTop;
+            let h1=document.documentElement.scrollTop||document.body.scrollTop;
             let h2=document.documentElement.clientHeight;
             let h3=oDiv.offsetHeight;
             oDiv.style.top=h1+h2-h3+"px";
