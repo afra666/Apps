@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Bird</title>
+<head>
+    <script src="../bird051507/Game.js"></script>
+</head>
+<body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<canvas id="myCanvas" style="border: cornflowerblue solid 1px"></canvas>
+<script src="Game.js"></script>
+<script>
+    window.onload=function () {
+        let cvs=document.getElementById("myCanvas");
+        let game=new Game(cvs);
+        game.start();
+    }
+</script>
+</body>

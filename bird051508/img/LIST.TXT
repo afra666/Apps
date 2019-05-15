@@ -1,0 +1,17 @@
+"bg_day.png
+"bg_night.png
+"bird0_0.png
+"bird0_1.png
+"bird0_2.png
+"bird1_0.png
+"bird1_1.png
+"bird1_2.png
+"bird2_0.png
+"bird2_1.png
+"bird2_2.png
+"brick.png
+"endscore.png
+"knight.png
+"pipedown.png
+"pipeup.png
+"start.png
