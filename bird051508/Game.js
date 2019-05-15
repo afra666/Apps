@@ -3,25 +3,26 @@ function Game(canvasObj) {
     Game.prototype.gameW=function (){
         //min[320*568]
         //max[414*736]
-        if (window.screen.width <320) {
+        document.documentElement.clientHeight
+        if ( document.documentElement.clientWidth <320) {
             return 320;
-        }else if(window.screen.width >414){
+        }else if( document.documentElement.clientWidth >414){
             return 414;
         }else{
-            return window.screen.width ;
+            return  document.documentElement.clientWidth ;
         }
     };
     Game.prototype.gameH=function(){
-        if (window.screen.height<568) {
+        if ( document.documentElement.clientHeight<568) {
             return 568;
-        }else if(window.screen.height>736){
+        }else if( document.documentElement.clientHeight>736){
             return 736;
         }else {
-            return window.screen.height;
+            return  document.documentElement.clientHeight;
         }
     }
     Game.prototype.cvs=canvasObj;
-    Game.prototype.ctx=canvasObj.getContext("2d");
+    Game.prototype.ctx=this.cvs.getContext("2d");
     Game.prototype.img= {
         bg_day: "img/bg_day.png",
         bg_night: "img/bg_night.png",
@@ -50,9 +51,10 @@ function Game(canvasObj) {
         console.log("gameH="+this.gameH());
         this.cvs.width=this.gameW();
         this.cvs.height=this.gameH();
-    }
+    };
     Game.prototype.start=function () {
     this.dataInit();
-
+    let bg=new Background(this);
+    bg.drawMe();
     };
 }
