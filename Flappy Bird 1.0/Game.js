@@ -1,4 +1,4 @@
-//load canvas//load images
+//load canvas//load images 
 let canvas=document.getElementById("myCanvas");
 let ctx=canvas.getContext("2d");
 canvas.width=smartScale().gameW;
@@ -154,8 +154,18 @@ function randomBirdColor() {
 }
 function drawBg() {
     //final
+    bgX-=pipeSpeed;
+    if (bgX==-gameW) {
+        bgX=0;
+    }
     ctx.drawImage(imgBg,bgX,bgY,bgW,bgH);
+    ctx.drawImage(imgBg,bgX+gameW,bgY,bgW,bgH);
+    cloudX-=pipeSpeed*2;
+    if (cloudX==-gameW) {
+        cloudX=0;
+    }
     ctx.drawImage(imgCloud,cloudX,cloudY,cloudW,cloudH);
+    ctx.drawImage(imgCloud,cloudX+gameW,cloudY,cloudW,cloudH);
 }
 function drawPipe() {
     for (let i = 0; i < pipeArr.length; i++) {
@@ -163,17 +173,14 @@ function drawPipe() {
         ctx.drawImage(imgPipeup,pipeArr[i].pX0,pipeArr[i].pY0,pipeW,pipeLen);
         ctx.drawImage(imgPipedown,pipeArr[i].pX0,pipeArr[i].pY0+pipeLen+gap,pipeW,pipeLen);
         console.log(pipeArr.length);
-        if ( gameOverJudge(pipeArr[i]) ) {
+        gameOverJudge(pipeArr[i]);
 
-           location.reload();
-
-       };
         //new  rdmY属于区间[-300,0]
         if (pipeArr[i].pX0===200) {
 
             pipeArr.push({
                 pX0:gameW,
-                pY0:gameH*(-Math.random()*0.4),
+                pY0:gameH*(-Math.random()*0.47),
             });
 
         }
@@ -182,7 +189,12 @@ function drawPipe() {
     ctx.fillText("Highest Score:"+score,10,30);
 }
 function drawGround() {
+    groundX-=pipeSpeed;
+    if (groundX===-gameW) {
+        groundX=0;
+    }
     ctx.drawImage(imgGround,groundX,groundY,groundW,groundH);
+    ctx.drawImage(imgGround,groundX+gameW,groundY,groundW,groundH);
 }
 function drawBird() {
     (++fno)===1000?fno:0;
@@ -223,6 +235,7 @@ function gameOverJudge(nowPipe) {
         alertFlag++;
         if (alertFlag===1) {
             alert("Game Over\nYour score is :"+score);
+            location.reload();
         }
         return true;
     }else {
