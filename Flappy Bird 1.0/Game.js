@@ -18,12 +18,14 @@ let mediaScore=new Audio();
 //variables
 let fno=0;
 let score=0;
+let t=0;
 //1.bird;
 let birdX=gameW*0.25;
 let birdY=gameH*0.4;
 let birdH=gameH*0.04;
 let birdW=birdH*1.4;
-let birdSpeedDown=gameH*0.003;
+// let birdSpeedDown=gameH*0.003;//vY
+let birdSpeedDown=0;//vY
 let birdSpeedUp=gameH*0.08;
 let rdmNumB=Math.floor(Math.random()*3);
 //2.bg
@@ -185,16 +187,20 @@ function drawBird() {
     //for
     ctx.drawImage(imgBird[fno%300%3],birdX,birdY,birdW,birdH);
     birdY+=birdSpeedDown;
+    t++;
+    birdSpeedDown=(2*t+1)*0.1;
 }
 function birdUp() {
+    t=0;
     mediaSwing.play();
     birdY-=birdSpeedUp;
 }
 function gameOverJudge(nowPipe) {
     let birdLeft=birdX;
     let birdRight=birdX+birdW;
-    let birdHead=birdY;
-    let birdFoot=birdY+birdH;
+    //修正值
+    let birdHead=birdY+5;
+    let birdFoot=birdY+birdH-5;
 
     let pipeUpLeft=nowPipe.pX0;
     let pipeUpRight=nowPipe.pX0+pipeW;
