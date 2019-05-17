@@ -14,7 +14,7 @@ let timer=null;
 let gameOver=false;
 //midi
 let m=new Audio();
-
+m.src="bgMusic.mp3";
 function start() {
     loadData();
     welcome();
@@ -62,10 +62,8 @@ function run() {
     }
 
     function loadData() {
-        m.src="bgMusic.mp3";
-       m.onload=function(){
-           m.play();
-       }
+
+
         m.loop=true;
         c.width = gameW;
         c.height = gameH;
@@ -98,6 +96,7 @@ function welcome() {
     ctx.fillText("点击屏幕,开始游戏",gameW/3,gameH/2);
     showScore();
     document.onclick=function () {
+        m.play();
         run();
         document.onclick=null;
         document.onclick=function () {
