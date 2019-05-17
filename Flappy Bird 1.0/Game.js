@@ -217,7 +217,7 @@ function gameOverJudge(nowPipe) {
         score+=10;
     }
     if(
-        (birdFoot>groundHead)||
+        (birdFoot>groundHead+10)||
         ((birdRight>pipeUpLeft&&birdLeft<pipeUpRight)&&(birdHead<pipeUpFoot||birdFoot>pipeDownHead))
             ){
         alertFlag++;
