@@ -163,8 +163,9 @@ function drawPipe() {
         ctx.drawImage(imgPipedown,pipeArr[i].pX0,pipeArr[i].pY0+pipeLen+gap,pipeW,pipeLen);
         console.log(pipeArr.length);
         if ( gameOverJudge(pipeArr[i]) ) {
+            alert("Game Over\nYour score is :"+score);
            location.reload();
-           alert("Game Over\nYour score is :"+score);
+
        };
         //new  rdmY属于区间[-300,0]
         if (pipeArr[i].pX0===200) {
