@@ -19,6 +19,7 @@ let mediaScore=new Audio();
 let fno=0;
 let score=0;
 let t=0;
+let alertFlag=0;
 //1.bird;
 let birdX=gameW*0.25;
 let birdY=gameH*0.4;
@@ -163,7 +164,7 @@ function drawPipe() {
         ctx.drawImage(imgPipedown,pipeArr[i].pX0,pipeArr[i].pY0+pipeLen+gap,pipeW,pipeLen);
         console.log(pipeArr.length);
         if ( gameOverJudge(pipeArr[i]) ) {
-            alert("Game Over\nYour score is :"+score);
+
            location.reload();
 
        };
@@ -219,6 +220,10 @@ function gameOverJudge(nowPipe) {
         (birdFoot>groundHead)||
         ((birdRight>pipeUpLeft&&birdLeft<pipeUpRight)&&(birdHead<pipeUpFoot||birdFoot>pipeDownHead))
             ){
+        alertFlag++;
+        if (alertFlag===1) {
+            alert("Game Over\nYour score is :"+score);
+        }
         return true;
     }else {
         return false;
