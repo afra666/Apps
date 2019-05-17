@@ -26,7 +26,7 @@ let birdH=gameH*0.04;
 let birdW=birdH*1.4;
 // let birdSpeedDown=gameH*0.003;//vY
 let birdSpeedDown=0;//vY
-let birdSpeedUp=gameH*0.08;
+let birdSpeedUp=gameH*0.06;
 let rdmNumB=Math.floor(Math.random()*3);
 //2.bg
 let bgX=0;
