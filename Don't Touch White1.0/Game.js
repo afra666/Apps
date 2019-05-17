@@ -63,7 +63,9 @@ function run() {
 
     function loadData() {
         m.src="bgMusic.mp3";
-        m.play();
+       m.onload=function(){
+           m.play();
+       }
         m.loop=true;
         c.width = gameW;
         c.height = gameH;
