@@ -8,16 +8,22 @@ let y0=-(1/3)*gameH;
 let bW=(1/3)*gameW;
 let bH=(1/3)*gameH;
 let boxArr=[];
-
 let speed=5;
 let timer=null;
 let gameOver=false;
 //midi
 let m=new Audio();
 m.src="bgMusic.mp3";
+//welcome
+let wel=new Image();
+wel.src="start.png"
+let welX=(gameW-wel.width)*0.5;
+let welY=(gameH-wel.height)*0.5;
 function start() {
-    loadData();
-    welcome();
+    wel.onload=function () {
+        loadData();
+        welcome();
+    }
 
 
 }
@@ -93,7 +99,7 @@ function welcome() {
     }
     ctx.font="50px Arial";
     ctx.fillStyle="cyan";
-    ctx.fillText("点击屏幕,开始游戏",gameW/3,gameH/2);
+    ctx.drawImage(wel,welX,welY);
     showScore();
     document.onclick=function () {
         m.play();
