@@ -1,63 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en','_blank')">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8','_blank')">
     <title>All Apps</title>
     <style >
     	*{
-            margin: 50px auto;
+            margin: 0px;
             padding: 0px;
         }
         #mainBody{
             background: cornflowerblue;
-            margin: 50px auto;
+            margin: 50px 50px;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            left: 300px;
+            /*定位为绝对定位*/
+            position: absolute;
+            border-radius: 50%;
+            background: lightskyblue;
         }
     </style>
 </head>
+<script>
+    function getPosJson(ev){
+        let scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+        let scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+        return{x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop}
+    }
+    // 鼠标移动事件
+    document.onmousemove=function () {
+        let aDiv=document.getElementsByTagName("div");
+        let pos=getPosJson(event);
+        let oTxt=document.getElementById("txt1");
+        let r=null;
+        for (let i = aDiv.length-1; i >0 ; i--) {
+            aDiv[i].style.left=aDiv[i-1].offsetLeft+"px";
+            aDiv[i].style.top=aDiv[i-1].offsetTop+"px";
+            r=Math.floor(Math.random() * 16777216).toString(16);
+            aDiv[i].style.background="#"+r;
+        }
+        aDiv[0].style.left=pos.x+100+"px";
+        aDiv[0].style.top=pos.y+100+"px";
+        oTxt.value="Pos("+pos.x+","+pos.y+")Color:#"+r;
+    }
+</script>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
 <body id="mainBody">
 <h3>All Apps</h3>
-<a	href="	https://afra666.github.io/Apps/Ajax read R.json	">	<li>	Ajax read R.json 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Ajax read text	">	<li>	Ajax read text 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Ajax read text2	">	<li>	Ajax read text2 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Ajax read text3	">	<li>	Ajax read text3 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Bottom right AD	">	<li>	Bottom right AD 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Calendar History	">	<li>	Calendar History 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Change Shape	">	<li>	Change Shape 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Colorful balls	">	<li>	Colorful balls 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Control direction	">	<li>	Control direction 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Do not white	">	<li>	Do not white 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Drag box	">	<li>	Drag box 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Drag box2	">	<li>	Drag box2 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Drag div by Call(this)	">	<li>	Drag div by Call(this) 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Email check	">	<li>	Email check 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Event which	">	<li>	Event which 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Find all numbers	">	<li>	Find all numbers 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Flappy Bird 1.0	">	<li>	Flappy Bird 1.0 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Following Div2	">	<li>	Following Div2 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Following div	">	<li>	Following div 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Funny Clock	">	<li>	Funny Clock 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Gif Div and canvas	">	<li>	Gif Div and canvas 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Help button	">	<li>	Help button 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Hidden text	">	<li>	Hidden text 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Idiom	">	<li>	Idiom 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Input only number	">	<li>	Input only number 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Mouse(x,y)	">	<li>	Mouse(x,y) 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Movie Online	">	<li>	Movie Online 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Moving Box2	">	<li>	Moving Box2 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Moving Div	">	<li>	Moving Div 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Now Time	">	<li>	Now Time 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Opacity div	">	<li>	Opacity div 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Open new window	">	<li>	Open new window 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/RegExp	">	<li>	RegExp 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Rolling Pictures	">	<li>	Rolling Pictures 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Rolling Pictures2	">	<li>	Rolling Pictures2 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Share	">	<li>	Share 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Tieba Post	">	<li>	Tieba Post 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Web Menu	">	<li>	Web Menu 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/Weibo mini	">	<li>	Weibo mini 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/bird051508	">	<li>	bird051508 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/document.write	">	<li>	document.write 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/scrollTop	">	<li>	scrollTop 	</li>	</a>
-<a	href="	https://afra666.github.io/Apps/window.location	">	<li>	window.location 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Ajax read R.json	','_blank')">	<li>	Ajax read R.json 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Ajax read text	','_blank')">	<li>	Ajax read text 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Ajax read text2	','_blank')">	<li>	Ajax read text2 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Ajax read text3	','_blank')">	<li>	Ajax read text3 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Bottom right AD	','_blank')">	<li>	Bottom right AD 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Calendar History	','_blank')">	<li>	Calendar History 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Change Shape	','_blank')">	<li>	Change Shape 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Colorful balls	','_blank')">	<li>	Colorful balls 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Control direction	','_blank')">	<li>	Control direction 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Do not white	','_blank')">	<li>	Do not white 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Drag box	','_blank')">	<li>	Drag box 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Drag box2	','_blank')">	<li>	Drag box2 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Drag div by Call(this)	','_blank')">	<li>	Drag div by Call(this) 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Email check	','_blank')">	<li>	Email check 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Event which	','_blank')">	<li>	Event which 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Find all numbers	','_blank')">	<li>	Find all numbers 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Flappy Bird 1.0	','_blank')">	<li>	Flappy Bird 1.0 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Following Div2	','_blank')">	<li>	Following Div2 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Following div	','_blank')">	<li>	Following div 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Funny Clock	','_blank')">	<li>	Funny Clock 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Gif Div and canvas	','_blank')">	<li>	Gif Div and canvas 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Help button	','_blank')">	<li>	Help button 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Hidden text	','_blank')">	<li>	Hidden text 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Idiom	','_blank')">	<li>	Idiom 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Input only number	','_blank')">	<li>	Input only number 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Mouse(x,y)	','_blank')">	<li>	Mouse(x,y) 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Movie Online	','_blank')">	<li>	Movie Online 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Moving Box2	','_blank')">	<li>	Moving Box2 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Moving Div	','_blank')">	<li>	Moving Div 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Now Time	','_blank')">	<li>	Now Time 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Opacity div	','_blank')">	<li>	Opacity div 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Open new window	','_blank')">	<li>	Open new window 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/RegExp	','_blank')">	<li>	RegExp 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Rolling Pictures	','_blank')">	<li>	Rolling Pictures 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Rolling Pictures2	','_blank')">	<li>	Rolling Pictures2 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Share	','_blank')">	<li>	Share 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Tieba Post	','_blank')">	<li>	Tieba Post 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Web Menu	','_blank')">	<li>	Web Menu 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/Weibo mini	','_blank')">	<li>	Weibo mini 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/bird051508	','_blank')">	<li>	bird051508 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/document.write	','_blank')">	<li>	document.write 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/scrollTop	','_blank')">	<li>	scrollTop 	</li>	</a>
+<a href="" onclick="window.open('https://afra666.github.io/Apps/window.location	','_blank')">	<li>	window.location 	</li>	</a>
+
+
 </body>
 </html>
