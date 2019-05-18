@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<img id="wel" src="gif1.gif" style="left: 0px;top: 0px;">
+<canvas id="mycanvas"></canvas>
+<script>
+    window.onload=function () {
+        let c=document.getElementById("mycanvas");
+        let ctx=c.getContext("2d");
+        c.style.border="1px solid black"
+        let wel=document.getElementById("wel");
+        wel.style.display="none"
+        c.onclick=function () {
+            wel.style.display="block"
+        }
+        ctx.fillStyle="black"
+        ctx.fillRect(0,0,300,100)
+    }
+</script>
+
+</body>
+</html>
