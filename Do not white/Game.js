@@ -8,7 +8,7 @@ let y0=-(1/3)*gameH;
 let bW=(1/3)*gameW;
 let bH=(1/3)*gameH;
 let boxArr=[];
-let speed=5;
+let speed=10;
 let timer=null;
 let gameOver=false;
 //midi
