@@ -79,11 +79,11 @@ drawBtn();//last
     }
     if (life<0) {
         life=0;
+        location.reload();
         if (xFlag==false) {
-                        xFlag=true;
+            xFlag=true;
             alert("Game Over \n要加油了!\n 你进入了"+score+"层")
         }
-        location.reload();
 
 
     }
