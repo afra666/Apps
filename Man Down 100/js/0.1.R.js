@@ -1,0 +1,41 @@
+function R() {
+    this.arrow_01=new Image();
+    this.arrow_02=new Image();
+    this.blockTop=new Image();
+    this.block_01=new Image();
+    this.block_02=new Image();
+    this.block_03=new Image();
+    this.block_04=new Image();
+    this.click=new Image();
+    this.man_01=new Image();
+    this.man_02=new Image();
+    this.man_03=new Image();
+    this.man_04=new Image();
+    this.man_05=new Image();
+    this.man_06=new Image();
+    this.man_07=new Image();
+    this.man_08=new Image();
+    this.ctx2Bg=new Image();
+    this.welcome=new Image();
+    this.arrow_01.src="img/arrow_01.png"
+    this.arrow_02.src="img/arrow_02.png"
+    this.blockTop.src="img/blockTop.png"
+    this.block_01.src="img/block_01.png"
+    this.block_02.src="img/block_02.png"
+    this.block_03.src="img/block_03.png"
+    this.block_04.src="img/block_04.png"
+    this.click.src="img/click.png"
+    this.man_01.src="img/man_01.png"
+    this.man_02.src="img/man_02.png"
+    this.man_03.src="img/man_03.png"
+    this.man_04.src="img/man_04.png"
+    this.man_05.src="img/man_05.png"
+    this.man_06.src="img/man_06.png"
+    this.man_07.src="img/man_07.png"
+    this.man_08.src="img/man_08.png"
+    this.ctx2Bg.src="img/ctx2Bg.png"
+    this.welcome.src="img/welcome.png"
+
+    this.bgMusic=new Audio();
+    this.bgMusic.src="music/yourenkeyigaosuwozenmele.lite.mp3";
+}
