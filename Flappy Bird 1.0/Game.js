@@ -47,7 +47,7 @@ let groundH=gameH*0.2;
 //5.pipes
 let pipeSpeed=1;
 let creatNewAtX=gameW*0.3;
-let pipeLen=gameH*0.7;
+let pipeLen=gameH;
 let pipeW=gameW*0.1;
 let gap=birdH*5;
 //first pipe
@@ -55,7 +55,7 @@ let pipeArr=[];
 // 向第一根管道push左上角坐标
 pipeArr[0]={
     pX0:gameW,
-    pY0:-gameH*0.5
+    pY0:-gameH*0.7
 };
 /*pY1:pipeArr[0].pY0+pipeLen+birdH*3*/
 // 加载图片资源、产生随机颜色鸟、显示欢迎界面
@@ -189,7 +189,8 @@ function drawPipe() {
 
             pipeArr.push({
                 pX0:gameW,
-                pY0:gameH*(-Math.random()*0.47),
+                //gap=0.2h, 高度为随机值[-0.8h,-0.4h]
+                pY0:gameH*(-Math.random()*0.4-0.4)
             });
 
         }
